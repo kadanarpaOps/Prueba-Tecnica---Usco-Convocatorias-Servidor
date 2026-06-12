@@ -1,0 +1,19 @@
+name: CD-MAIN-DEPLOY
+on:
+  push:
+    branches:
+      - 'develop'
+
+jobs:
+  invoke-sonar-analysis:
+    name: SonarQube Code Analysis
+    permissions:
+      contents: read
+      actions: read
+    uses: HTTPS-TODOCODE/workflows-reusables/.github/workflows/sonar-analysis.yml@feature/kadanarpa-actions
+    with:
+      sonar-quality-gate-wait: false
+    secrets:
+      PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+      SONAR_URL: ${{ secrets.SONAR_URL }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

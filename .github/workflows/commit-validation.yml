@@ -1,0 +1,25 @@
+name: CI-APP
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+
+jobs:
+  invoke-commit-validation:
+    name: Commit Jira Validation
+    permissions:
+      contents: read
+      actions: read
+    uses: HTTPS-TODOCODE/workflows-reusables/.github/workflows/commit-jira-validation.yml@feature/kadanarpa-actions
+    secrets: inherit
+
+  invoke-sonar-analysis:
+    name: SonarQube Code Analysis
+    permissions:
+      contents: read
+      actions: read
+    uses: HTTPS-TODOCODE/workflows-reusables/.github/workflows/sonar-analysis.yml@feature/kadanarpa-actions
+    secrets: inherit
+    with:
+      sonar-quality-gate-wait: true
