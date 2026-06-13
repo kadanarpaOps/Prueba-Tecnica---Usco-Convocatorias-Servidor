@@ -12,7 +12,11 @@ jobs:
       contents: read
       actions: read
     uses: HTTPS-TODOCODE/workflows-reusables/.github/workflows/commit-jira-validation.yml@feature/kadanarpa-actions
-    secrets: inherit
+    secrets:
+      JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+      JIRA_KEY: ${{ secrets.JIRA_KEY }}
+      JIRA_URL: ${{ secrets.JIRA_URL }}
+      JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
 
   invoke-sonar-analysis:
     name: SonarQube Code Analysis
@@ -20,6 +24,9 @@ jobs:
       contents: read
       actions: read
     uses: HTTPS-TODOCODE/workflows-reusables/.github/workflows/sonar-analysis.yml@feature/kadanarpa-actions
-    secrets: inherit
+    secrets:
+      PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+      SONAR_URL: ${{ secrets.SONAR_URL }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     with:
       sonar-quality-gate-wait: true
