@@ -1,4 +1,4 @@
-package co.edu.usco.convocations.server.Usco_Convocations_API;
+package co.edu.usco.convocations.server.usco_convocations_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package co.edu.usco.convocations.server.Usco_Convocations_API;
+package co.edu.usco.convocations.server.usco_convocations_api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
