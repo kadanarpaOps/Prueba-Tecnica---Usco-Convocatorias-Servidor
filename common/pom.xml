@@ -9,16 +9,8 @@
         <version>0.1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Users_Module</artifactId>
+    <artifactId>Commons_Module</artifactId>
     <version>${parent.version}</version>
-
-    <dependencies>
-        <dependency>
-            <groupId>co.edu.usco.convocations.server</groupId>
-            <artifactId>Commons_Module</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-    </dependencies>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

@@ -57,3 +57,9 @@ Ruleset Name: Restrict Creations
     ☑ Skips: feature/*, bugfix/*
 ☑ Restrict creations
 ```
+
+## Keycloak
+El realm y cliente se configuraron bajo el siguiente [Enlace](https://keycloak.daisyflows.top/)
+- Realm: `Usco_Convocatorias_DEV` para Desarrollo
+- Vida de Access Token: 1 Minutos
+- Vida de Refresh Token: 5 Minutos

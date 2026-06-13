@@ -19,6 +19,7 @@
     <modules>
         <module>bootstrap</module>
         <module>users_module</module>
+        <module>common</module>
     </modules>
 
     <properties>
@@ -87,7 +88,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security-oauth2-resource-server</artifactId>
         </dependency>
-
     </dependencies>
 
 	<build>

@@ -3,19 +3,12 @@ CREATE TABLE IF NOT EXISTS T_ROLES (
                                         ROLE_NAME VARCHAR(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS T_STATUSES (
-                                       STATUS_ID UUID NOT NULL PRIMARY KEY,
-                                       STATUS_NAME VARCHAR(50) NOT NULL UNIQUE
-);
-
 CREATE TABLE IF NOT EXISTS T_USERS (
                                         USER_ID UUID NOT NULL PRIMARY KEY,
                                         USER_USCO_CODE VARCHAR(50) NOT NULL UNIQUE,
                                         USER_NAME VARCHAR(100) NOT NULL,
                                         USER_EMAIL VARCHAR(50) NOT NULL UNIQUE,
-                                        USER_STATUS_ID UUID NOT NULL,
-                                        FOREIGN KEY (USER_STATUS_ID) REFERENCES T_STATUSES(STATUS_ID)
-                                            ON DELETE CASCADE
+                                        USER_ENABLED BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE IF NOT EXISTS T_USER_ROLES (
