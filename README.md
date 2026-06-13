@@ -14,3 +14,42 @@ spring init -d web,lombok,data-mongodb --build maven -l java -b 4.0.5 -g co.edu.
 
 - Spring Web
 - Lombok
+
+## Protección de ramas
+Se ha optado por proteger las ramas principales y añadirles requisitos para cada PR de la siguiente manera.
+- `Settings` → `Rules|Rulesets` → `New branch ruleset`
+Para `develop`:
+```text
+Ruleset Name: Restrict Develop
+☑ Enforcement status: Active
+☑ Target branches: develop, develop/*, develop/**/*
+☑ Restrict creations
+☑ Restrict deletions
+☑ Require a pull request before merging
+☑ Require status check to pass:
+    ☑ Require branches to be up to date before merging
+    ☑ Status check that are required: Commit Jira Validation, SonarQube Code Analysis
+☑ Block force pushes
+```
+Para `main`:
+```text
+Ruleset Name: Restrict Main
+☑ Enforcement status: Active
+☑ Target branches: main, main/**, main/**/*
+☑ Restrict creations
+☑ Restrict deletions
+☑ Require a pull request before merging
+☑ Require status check to pass:
+    ☑ Require branches to be up to date before merging
+    ☑ Status check that are required: SonarQube Code Analysis
+☑ Block force pushes
+```
+Para cualquier rama que no sea `feature` o `bugfix`:
+```text
+Ruleset Name: Restrict Creations
+☑ Enforcement status: Active
+☑ Target branches:
+    ☑ Applies to: *, */*, */**/*
+    ☑ Skips: feature/*, bugfix/*
+☑ Restrict creations
+```
