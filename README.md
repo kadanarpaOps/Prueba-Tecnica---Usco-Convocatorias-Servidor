@@ -15,6 +15,10 @@ spring init -d web,lombok,data-mongodb --build maven -l java -b 4.0.5 -g co.edu.
 - Spring Web
 - Lombok
 
+## Scripts Inicialización de Base de Datos
+- La base de datos se creó con anterioridad desde el portal de [PgAdmin4](https://pgadmin.daisyflows.top/).
+- Se encuentran todos en el siguiente [Enlace]().
+
 ## Protección de ramas
 Se ha optado por proteger las ramas principales y añadirles requisitos para cada PR de la siguiente manera.
 - `Settings` → `Rules|Rulesets` → `New branch ruleset`
