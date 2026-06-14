@@ -1,5 +1,7 @@
 package co.edu.usco.convocations.server.users.infrastructure.output.persistence.repository;
 
+import static co.edu.usco.convocations.server.users.domain.constants.Constants.CREATION_OP;
+import co.edu.usco.convocations.server.users.domain.exceptions.keycloak.FailedKeycloakOperationException;
 import jakarta.ws.rs.core.HttpHeaders;
 import lombok.RequiredArgsConstructor;
 import org.keycloak.admin.client.Keycloak;
@@ -23,9 +25,14 @@ public class KeycloakUserRepository {
     private String skipDefaultRole;
 
     public String save(UserRepresentation user) {
-        String locationHeader = keycloak.realm(realm).users().create(user)
-                .getHeaderString(HttpHeaders.LOCATION);
-        return locationHeader.substring(locationHeader.lastIndexOf('/') + 1);
+        String locationHeader;
+        try {
+            locationHeader = keycloak.realm(realm).users().create(user)
+                    .getHeaderString(HttpHeaders.LOCATION);
+        } catch (RuntimeException e) {
+            throw new FailedKeycloakOperationException(CREATION_OP);
+        }
+        return locationHeader;
     }
 
     public void update(String userId, UserRepresentation newInfo) {

@@ -63,3 +63,9 @@ El realm y cliente se configuraron bajo el siguiente [Enlace](https://keycloak.d
 - Realm: `Usco_Convocatorias_DEV` para Desarrollo
 - Vida de Access Token: 1 Minutos
 - Vida de Refresh Token: 5 Minutos
+
+## SonarQube Integración
+Para probar la calidad del código se puede ejecutar el siguiente comando que de igual manera se ejecuta en los actions
+```shell
+mvn clean verify sonar:sonar "-Dsonar.projectKey=Usco-Convocatorias-Servidor" "-Dsonar.projectName='Usco-Convocatorias-Servidor'" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.token=${PROJECT_TOKEN}" "-Dsonar.branch.name=${BRANCH}" "-Dsonar.qualitygate.wait=true
+```

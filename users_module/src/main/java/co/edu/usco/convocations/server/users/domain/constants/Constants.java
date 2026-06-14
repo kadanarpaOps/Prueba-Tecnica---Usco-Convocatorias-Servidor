@@ -1,9 +1,8 @@
 package co.edu.usco.convocations.server.users.domain.constants;
 
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
 public class Constants {
+
+    private Constants() {}
 
     // Messages
     public static final String USER_WITH_FIELD_ALREADY_EXISTS_MESSAGE = "User with that %s already exists";
@@ -17,6 +16,9 @@ public class Constants {
     public static final String USER_INVALID_EMAIL_MESSAGE = "Invalid email";
     public static final String USER_INVALID_NAME_MESSAGE = "Invalid name";
     public static final String USER_INVALID_PASSWORD_MESSAGE = "Invalid password";
+
+    // Operations
+    public static final String CREATION_OP = "Creation";
 
     // Fields
     public static final String ID = "id";

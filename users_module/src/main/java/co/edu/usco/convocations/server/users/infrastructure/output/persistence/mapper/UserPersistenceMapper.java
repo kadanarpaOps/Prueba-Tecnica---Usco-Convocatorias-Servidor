@@ -16,9 +16,7 @@ public class UserPersistenceMapper {
                 .userStatus(userModel.isUserStatus())
                 .userRoles(
                         userModel.getUserRoles().stream().map(
-                                roleModel -> {
-                                    return roleMapper.toEntity(roleModel);
-                                }
+                                roleModel -> roleMapper.toEntity(roleModel)
                         ).toList()
                 )
                 .build();
@@ -33,9 +31,7 @@ public class UserPersistenceMapper {
                 .userStatus(userEntity.isUserStatus())
                 .userRoles(
                         userEntity.getUserRoles().stream().map(
-                                roleEntity -> {
-                                    return roleMapper.toModel(roleEntity);
-                                }
+                                roleEntity -> roleMapper.toModel(roleEntity)
                         ).toList()
                 )
                 .build();
