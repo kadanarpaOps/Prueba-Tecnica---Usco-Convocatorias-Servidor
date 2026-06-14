@@ -18,6 +18,18 @@
             <artifactId>Commons_Module</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <!-- Open Feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+        <!-- Feign Form Encoder -->
+        <dependency>
+            <groupId>io.github.openfeign.form</groupId>
+            <artifactId>feign-form</artifactId>
+            <version>3.8.0</version>
+        </dependency>
     </dependencies>
 
     <properties>
