@@ -18,15 +18,23 @@
 
     <modules>
         <module>bootstrap</module>
-        <module>users_module</module>
+        <module>users-module</module>
         <module>common</module>
     </modules>
 
     <properties>
 		<java.version>17</java.version>
-        <sonar.junit.reportPaths>${project.build.directory}/surefire-reports</sonar.junit.reportPaths>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/coverage-reports/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-        <sonar.coverage.exclusions>**/common/**, **/domain/**, **/persistence/**, **/dto/**, **/handler/**, **/config/**, **/*Application.java</sonar.coverage.exclusions>
+        <sonar.junit.reportPaths>**/target/surefire-reports</sonar.junit.reportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>**/target/coverage-reports/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.exclusions>
+            **/common/**,
+            **/domain/**,
+            **/repository/**,
+            **/dto/**,
+            **/handler/**,
+            **/config/**,
+            **/*Application.java
+        </sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
