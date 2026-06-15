@@ -1,7 +1,9 @@
 package co.edu.usco.convocations.server.users.infrastructure.output.persistence.repository;
 
 import static co.edu.usco.convocations.server.users.domain.constants.Constants.CREATION_OP;
-import co.edu.usco.convocations.server.users.domain.exceptions.keycloak.FailedKeycloakOperationException;
+import static co.edu.usco.convocations.server.users.domain.constants.Constants.KEYCLOAK_ERR_CONNECTION;
+
+import co.edu.usco.convocations.server.users.domain.exceptions.business.FailedOperationException;
 import jakarta.ws.rs.core.HttpHeaders;
 import lombok.RequiredArgsConstructor;
 import org.keycloak.admin.client.Keycloak;
@@ -31,8 +33,8 @@ public class KeycloakUserRepository {
                     .getHeaderString(HttpHeaders.LOCATION);
             locationHeader = locationHeader.substring(locationHeader.lastIndexOf('/') + 1);
         } catch (RuntimeException e) {
-            throw new FailedKeycloakOperationException(CREATION_OP);
-        } finally {
+            throw new FailedOperationException(CREATION_OP, KEYCLOAK_ERR_CONNECTION);
+            } finally {
             keycloak.close();
         }
         return locationHeader;
