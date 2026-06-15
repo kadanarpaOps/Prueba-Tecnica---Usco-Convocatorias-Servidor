@@ -29,8 +29,11 @@ public class KeycloakUserRepository {
         try {
             locationHeader = keycloak.realm(realm).users().create(user)
                     .getHeaderString(HttpHeaders.LOCATION);
+            locationHeader = locationHeader.substring(locationHeader.lastIndexOf('/') + 1);
         } catch (RuntimeException e) {
             throw new FailedKeycloakOperationException(CREATION_OP);
+        } finally {
+            keycloak.close();
         }
         return locationHeader;
     }

@@ -16,6 +16,7 @@ public class UserModel {
     private String uscoCode;
     private String userName;
     private String userEmail;
+    private String userPassword;
     private List<RoleModel> userRoles;
     private boolean userStatus;
 
